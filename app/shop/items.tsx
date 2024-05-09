@@ -47,7 +47,8 @@ export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
           onClick={onRefillHearts}
           disabled={pending || hearts >= 5 || points < POINTS_TO_REFILL}
         >
-          {hearts === 5 ? (
+          {/* add: ===5 */}
+          {hearts >= 5 ? (
             'full'
           ) : (
             <div className='flex items-center'>
@@ -64,13 +65,13 @@ export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
             Unlimited hearts
           </p>
         </div>
-        {/* <Button onClick={onUpgrade} disabled={pending || hasActiveSubscription}>
-          {hasActiveSubscription ? 'active' : 'upgrade'}
-        </Button> */}
-        {/* should be this at last */}
         <Button onClick={onUpgrade} disabled={pending}>
           {hasActiveSubscription ? 'settings' : 'upgrade'}
         </Button>
+        {/* should be this at last */}
+        {/* <Button onClick={onUpgrade} disabled={pending}>
+          {hasActiveSubscription ? 'settings' : 'upgrade'}
+        </Button> */}
       </div>
     </ul>
   )
